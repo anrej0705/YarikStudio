@@ -1498,7 +1498,7 @@ namespace AssetStudio
             m_CycleOffset = reader.ReadSingle();
             m_AverageAngularSpeed = reader.ReadSingle();
 
-            if (reader.Game.Type.IsSR() && HasShortIndexArray(reader.serializedType))
+            if ((reader.Game.Type.IsSR() || reader.Game.Type.IsSRCB2()) && HasShortIndexArray(reader.serializedType))
             {
                 m_IndexArray = reader.ReadInt16Array().Select(x => (int)x).ToArray();
             }
